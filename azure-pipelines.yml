@@ -2,6 +2,7 @@ trigger:
 - master
 
 pool:
+--name: LAPTOP-D6KS2R0E
   vmImage: 'Ubuntu-16.04'
 
 steps:
