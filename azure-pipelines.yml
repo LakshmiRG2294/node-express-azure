@@ -20,7 +20,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: sudo apt install mocha
-            sudo npm test
+            sudo npm run test
 
 - task: ArchiveFiles@2
   displayName: 'Archive files'
