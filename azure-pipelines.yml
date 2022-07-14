@@ -11,9 +11,10 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- script: |
-    ./setup.sh
-  displayName: 'npm install'
+steps:
+- task: Bash@3
+  inputs:
+    script: npm install
 
 - script: |
     npm test
