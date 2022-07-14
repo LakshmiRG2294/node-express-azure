@@ -14,7 +14,7 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: npm install
+    script: sudo npm install npm@latest -g
 
 - script: |
     npm test
