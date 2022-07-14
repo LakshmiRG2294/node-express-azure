@@ -2,7 +2,6 @@ trigger:
 - master
 
 pool:
-  name: Default
   vmImage: 'Ubuntu-16.04'
 
 steps:
@@ -12,12 +11,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    
-  # displayName: 'npm install'
+    ./setup.sh
+  displayName: 'npm install'
 
 - script: |
-    
-  # displayName: 'npm test'
+    npm test
+  displayName: 'npm test'
 
 - task: ArchiveFiles@2
   displayName: 'Archive files'
