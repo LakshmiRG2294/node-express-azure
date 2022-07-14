@@ -16,27 +16,28 @@ steps:
     targetType: 'inline'
     script: sudo apt-get install npm
             
-- script: |
-    npm run build
-  displayName: 'npm build'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: npm build
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
     contents: '*.tgz' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    targetFolder: $(System.DefaultWorkingDirectory)/npm
   displayName: 'Copy npm package'
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
     contents: 'package.json' 
-    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+    targetFolder: $(System.DefaultWorkingDirectory)/npm
   displayName: 'Copy package.json'   
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+    targetPath: '$(System.DefaultWorkingDirectory)/npm'
     artifactName: npm
   displayName: 'Publish npm artifact'
   
