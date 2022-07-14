@@ -35,7 +35,7 @@ steps:
     targetFolder: $(System.DefaultWorkingDirectory)/npm
   displayName: 'Copy package.json'   
 
-- task: PublishBuildArtifact@1
+- task: PublishBuildArtifacts@1
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/npm'
     artifactName: npm
