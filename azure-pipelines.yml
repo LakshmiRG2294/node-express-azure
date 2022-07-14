@@ -13,7 +13,7 @@ steps:
 
 - task: Bash@3
   inputs:
-    targetType: 'filePath'
+    targetType: 'inline'
     script: npm install
 
 - script: |
