@@ -19,7 +19,7 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: npm build
+    script: npm run build
 
 - task: CopyFiles@2
   inputs:
