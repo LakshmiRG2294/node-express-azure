@@ -39,5 +39,5 @@ steps:
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/npm'
     artifactName: '*.zip'
-  displayName: 'Publish npm artifact'
+  displayName: 'Publish Artifact: drop'
   
