@@ -35,9 +35,8 @@ steps:
     targetFolder: $(System.DefaultWorkingDirectory)/npm
   displayName: 'Copy package.json'   
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/npm'
-    artifactName: '*.zip'
+- task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
   
