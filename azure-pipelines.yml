@@ -11,32 +11,6 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: sudo apt-get install npm
-            
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: sudo npm build /home/azureuser/myagent/
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(System.DefaultWorkingDirectory)'
-    contents: '*.tgz' 
-    targetFolder: $(System.DefaultWorkingDirectory)
-  displayName: 'Copy npm package'
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(System.DefaultWorkingDirectory)'
-    contents: 'package.json' 
-    targetFolder: $(System.DefaultWorkingDirectory)
-  displayName: 'Copy package.json'   
- 
-    
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
-  
-  
+- script: |
+    npm install
+  displayName: 'npm install'
