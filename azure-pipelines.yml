@@ -12,5 +12,5 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
+    sudo apt-get install npm
   displayName: 'npm install'
