@@ -19,9 +19,6 @@ steps:
   displayName: 'Copy package.json'   
  
     
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
-
 - task: PublishBuildArtifacts@1
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/npm'
