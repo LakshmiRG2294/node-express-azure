@@ -11,11 +11,15 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- script: |
-    sudo apt-get install npm
-    npm run-script build
-    npm test
-  displayName: 'npm install and build'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: sudo apt-get install npm
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: sudo npm build /home/azureuser/myagent/
 
 - task: CopyFiles@2
   inputs:
