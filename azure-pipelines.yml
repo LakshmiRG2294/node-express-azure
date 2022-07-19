@@ -11,18 +11,6 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: sudo npm run-script build 
-
-- task: CopyFiles@2
-  inputs:
-    sourceFolder: '$(System.DefaultWorkingDirectory)'
-    contents: '*.tgz' 
-    targetFolder: $(System.DefaultWorkingDirectory)
-  displayName: 'Copy npm package'
-
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(System.DefaultWorkingDirectory)'
