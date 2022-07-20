@@ -25,9 +25,9 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy package.json'   
 
-- task: ArchiveFiles@2
+- task: Bash@3
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)'
-    archiveType: 'zip'
-    archiveFile: '$(Build.SourcesDirectory)'
+    targetType: 'inline'
+    script: zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
+	displayName: ‘Archive the file’
     
