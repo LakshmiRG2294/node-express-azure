@@ -32,4 +32,7 @@ steps:
   displayName: ‘Archive the file’
  
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts: drop'
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+    artifactName: npm
+  displayName: 'Publish npm artifact'
