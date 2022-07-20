@@ -29,5 +29,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
-	displayName: ‘Archive the file’
+  displayName: ‘Archive the file’
     
