@@ -11,11 +11,22 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-
-- task: ArchiveFiles@2
+- task: CopyFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(System.DefaultWorkingDirectory)'
-    replaceExistingArchive: true
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: '*.tgz' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy npm package'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: 'package.json' 
+    targetFolder: $(Build.ArtifactStagingDirectory)/npm
+  displayName: 'Copy package.json'   
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/npm'
+    artifactName: npm
+  displayName: 'Publish npm artifact'
