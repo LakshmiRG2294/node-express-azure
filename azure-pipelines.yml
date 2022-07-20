@@ -30,4 +30,6 @@ steps:
     targetType: 'inline'
     script: zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
   displayName: ‘Archive the file’
-    
+ 
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifacts: drop'
