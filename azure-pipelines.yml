@@ -25,8 +25,10 @@ steps:
     targetFolder: $(Build.ArtifactStagingDirectory)/npm
   displayName: 'Copy package.json'   
 
-- task: Npm@1
+- task: ArchiveFiles@2
   inputs:
-    command: publish
-    publishRegistry: useExternalRegistry
-    publishEndpoint: 'Npmservice'
+    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
