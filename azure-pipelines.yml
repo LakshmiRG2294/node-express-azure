@@ -31,7 +31,3 @@ steps:
     artifactName: npm
   displayName: 'Publish npm artifact'
 
-- task: Npm@1
-  inputs:
-    command: 'publish'
-    publishEndpoint: 'Npmservice'
