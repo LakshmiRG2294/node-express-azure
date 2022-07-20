@@ -27,6 +27,6 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'publish'
-    workingDir: '$(Build.SourcesDirectory)'
+    command: publish
+    publishRegistry: useExternalRegistry
     publishEndpoint: 'Npmservice'
