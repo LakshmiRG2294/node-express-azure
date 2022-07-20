@@ -26,9 +26,7 @@ steps:
   displayName: 'Copy package.json'   
 
 - task: ArchiveFiles@2
+  displayName: 'Archive files'
   inputs:
     rootFolderOrFile: '$(Build.SourcesDirectory)'
     includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    replaceExistingArchive: true
