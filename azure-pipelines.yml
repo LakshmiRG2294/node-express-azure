@@ -33,5 +33,6 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'publish'
-    publishEndpoint: 'Npmservice'
+    command: publish
+    publishRegistry: useExternalRegistry
+    publishEndpoint: Npmservice
