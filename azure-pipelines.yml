@@ -31,8 +31,7 @@ steps:
     script: zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
   displayName: ‘Archive the file’
 
-- task: PublishBuildArtifacts@1
+- task: Npm@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    command: 'publish'
+    publishEndpoint: 'Npmservice'
